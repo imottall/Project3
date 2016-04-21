@@ -49,3 +49,191 @@ namespace WindowsFormsApplication6
             return twee;
             return drie;
         }
+  // this is a method for designing the columns, seperators and row deletion. 
+        // this is the same for the other three tables so I will only comment here once.
+        private void Datagridview(List<string[]> markt)
+        {
+            // this is were we decide how many columns the table should have. this must be the same as the database file
+            dataGridView1.ColumnCount = 7;
+            for (int i = 0; i < 7; i++)
+            {   
+                // Here we replace certain symbols so that the data becomes easier to read.
+                var sb = new StringBuilder(markt[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView1.Columns[i].Name = sb.ToString();
+
+
+            }
+            // Here a row is inserted for each string of data in the table.
+            foreach (string[] row in markt)
+            {
+                dataGridView1.Rows.Add(row);
+            }
+            // this makes sure the first row ( which contains the column names) is deleted from the table and displayed at the top.
+            dataGridView1.Rows.Remove(dataGridView1.Rows[0]);
+
+
+        }
+        private void Datagridview1(List<string[]> een)
+        {
+            dataGridView1.ColumnCount = 3;
+            for (int i = 0; i < 3; i++)
+            {
+                var sb = new StringBuilder(een[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView1.Columns[i].Name = sb.ToString();
+
+
+            }
+
+            foreach (string[] row in een)
+            {
+                dataGridView1.Rows.Add(row);
+            }
+            dataGridView1.Rows.Remove(dataGridView1.Rows[0]);
+
+
+        }
+
+        private void Datagridview2(List<string[]> twee)
+        {
+            dataGridView1.ColumnCount = 3;
+            for (int i = 0; i < 3; i++)
+            {
+                var sb = new StringBuilder(twee[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView1.Columns[i].Name = sb.ToString();
+
+
+            }
+
+            foreach (string[] row in twee)
+            {
+                dataGridView1.Rows.Add(row);
+            }
+            dataGridView1.Rows.Remove(dataGridView1.Rows[0]);
+
+
+        }
+
+        private void Datagridview3(List<string[]> drie)
+        {
+            dataGridView1.ColumnCount = 3;
+            for (int i = 0; i < 3; i++)
+            {
+                var sb = new StringBuilder(drie[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView1.Columns[i].Name = sb.ToString();
+
+
+            }
+
+            foreach (string[] row in drie)
+            {
+                dataGridView1.Rows.Add(row);
+            }
+            dataGridView1.Rows.Remove(dataGridView1.Rows[0]);
+
+
+        }
+        public object DataGridView1 { get; private set; }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //This is where we point to the source file for the data sets.
+            List<string[]> markt = ReadData(@"C:\tabel\een markt.csv", ';');
+
+            // This ensures that whenever we press a button twice, or press another button, the innitial data gets cleared first.
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            Datagridview(markt);
+
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            List<string[]> een = ReadData(@"C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WindowsFormsApplication6\WindowsFormsApplication6\Resources\Question 1.csv", ';');
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+           
+            chart2.Series[0].Points.Clear();
+            this.chart2.Series["Facilities"].Points.AddXY("parking", 30);
+            this.chart2.Series["Facilities"].Points.AddXY("Bicycle", 703);
+            this.chart2.Series["Facilities"].Points.AddXY("RET", 2144);
+
+
+            Datagridview1(een);
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<string[]> twee = ReadData(@"C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WindowsFormsApplication6\WindowsFormsApplication6\Resources\Question 3.csv", ';');
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            
+            chart2.Series[0].Points.Clear();
+            this.chart2.Series["Facilities"].Points.AddXY("parking", 30);
+            this.chart2.Series["Facilities"].Points.AddXY("Bicycle", 703);
+            this.chart2.Series["Facilities"].Points.AddXY("RET", 2144);
+            Datagridview1(twee);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<string[]> drie = ReadData(@"C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WindowsFormsApplication6\WindowsFormsApplication6\Resources\Question 2.csv", ';');
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            
+            chart2.Series[0].Points.Clear();
+            this.chart2.Series["Facilities"].Points.AddXY("parking", 30);
+            this.chart2.Series["Facilities"].Points.AddXY("Bicycle", 703);
+            this.chart2.Series["Facilities"].Points.AddXY("RET", 2144);
+            Datagridview1(drie);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form3 frm = new Form3();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+
+}

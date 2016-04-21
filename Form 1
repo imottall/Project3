@@ -75,6 +75,7 @@ namespace WindowsFormsApplication6
 
 
         }
+        // This is for creating the sheat in the application to show data.
         private void Datagridview1(List<string[]> een)
         {
             dataGridView1.ColumnCount = 3;
@@ -96,7 +97,7 @@ namespace WindowsFormsApplication6
 
 
         }
-
+        // More sheat creation
         private void Datagridview2(List<string[]> twee)
         {
             dataGridView1.ColumnCount = 3;
@@ -118,7 +119,7 @@ namespace WindowsFormsApplication6
 
 
         }
-
+        // And more sheat creation
         private void Datagridview3(List<string[]> drie)
         {
             dataGridView1.ColumnCount = 3;

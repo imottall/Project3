@@ -1,1 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
+namespace WindowsFormsApplication6
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+
+        }
+
+        private static List<string[]> ReadData(string path,char separator)
+        {
+            //Here we set up four variables, one for each data set.
+            var markt = new List<string[]>();
+            var een = new List<string[]>();
+            var twee = new List<string[]>();
+            var drie = new List<string[]>();
+            using (var sr = new StreamReader(path))
+
+            {
+                //This is were the rows are added to the program. 
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    //Here we ensure that each table can have an amount of rows
+                    string[] row = line.Split(separator);
+                    markt.Add(row);
+                    een.Add(row);
+                    twee.Add(row);
+                    drie.Add(row);
+
+                }
+
+            }
+
+            return markt;
+            return een;
+            return twee;
+            return drie;
+        }

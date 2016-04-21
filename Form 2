@@ -1,1 +1,164 @@
+ private void Datagridview9(List<string[]> H)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(H[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in H)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview10(List<string[]> I)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(I[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in I)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview11(List<string[]> J)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(J[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in J)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+        public object DataGridView2 { get; private set; }
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new Form1();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<string[]> A = ReadData(@"Resources\A.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(A);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView2.Rows[e.RowIndex].ReadOnly = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<string[]> B = ReadData(@"Resources\B.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(B);
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            List<string[]> C = ReadData(@"Resources\C.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(C);
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<string[]> D = ReadData(@"Resources\D.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(D);
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            List<string[]> E = ReadData(@"Resources\E.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(E);
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            List<string[]> F = ReadData(@"Resources\F.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(F);
+        }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            List<string[]> G = ReadData(@"Resources\G.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(G);
+        }
+        private void button9_Click(object sender, EventArgs e)
+        {
+            List<string[]> H = ReadData(@"Resources\H.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(H);
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            List<string[]> I = ReadData(@"Resources\I.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(I);
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            List<string[]> J = ReadData(@"Resources\J.csv", ';');
+            dataGridView2.Rows.Clear();
+            dataGridView2.Refresh();
+            Datagridview2(J);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new Form1();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Form3 frm = new Form3();
+            frm.Show();
+            this.Hide();
+        }
+    }
+}
 

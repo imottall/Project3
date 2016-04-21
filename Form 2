@@ -1,3 +1,182 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication6
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+
+            // this makes sure the charts are also cleared whenever you press the button twice. 
+            chart1.Series[0].Points.Clear();
+
+
+            // this is where all the data for the charts is put in with label names and amounts.
+            this.chart1.Series["Markets"].Points.AddXY("Monday", 0);
+            this.chart1.Series["Markets"].Points.AddXY("Thuesday", 4);
+            this.chart1.Series["Markets"].Points.AddXY("Wednesday", 3);
+            this.chart1.Series["Markets"].Points.AddXY("Thursday", 3);
+            this.chart1.Series["Markets"].Points.AddXY("Friday", 4);
+            this.chart1.Series["Markets"].Points.AddXY("Saturday", 4);
+            this.chart1.Series["Markets"].Points.AddXY("Sunday", 1);
+        }
+        private static List<string[]> ReadData(string path, char separator)
+        {
+            //Here we set up four variables, one for each data set.
+            var A = new List<string[]>();
+            
+            using (var sr = new StreamReader(path))
+
+            {
+                //This is were the rows are added to the program. 
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    //Here we ensure that each table can have an amount of rows
+                    string[] row = line.Split(separator);
+                    A.Add(row);
+
+                }
+
+            }
+
+            return A;
+        }
+
+        private void Datagridview2(List<string[]> A)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(A[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in A)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview3(List<string[]> B)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(B[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in B)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview4(List<string[]> C)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(C[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in C)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview5(List<string[]> D)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(D[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in D)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+        private void Datagridview6(List<string[]> E)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(E[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in E)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview7(List<string[]> F)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(F[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in F)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
+
+        private void Datagridview8(List<string[]> G)
+        {
+            dataGridView2.ColumnCount = 5;
+            for (int i = 0; i < 5; i++)
+            {
+                var sb = new StringBuilder(G[0][i]);
+                sb.Replace('_', ' ');
+                sb.Replace("\"", "");
+                dataGridView2.Columns[i].Name = sb.ToString();
+            }
+
+            foreach (string[] row in G)
+            {
+                dataGridView2.Rows.Add(row);
+            }
+            dataGridView2.Rows.Remove(dataGridView2.Rows[0]);
+        }
  private void Datagridview9(List<string[]> H)
         {
             dataGridView2.ColumnCount = 5;
